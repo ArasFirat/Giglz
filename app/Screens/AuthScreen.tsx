@@ -1,12 +1,18 @@
-import { StyleSheet, Text, View, Image, Pressable, ImageBackground } from 'react-native';
+import { StyleSheet, Text, View, Image, Pressable, ImageBackground, TouchableOpacity } from 'react-native';
 import { Music2 } from 'lucide-react-native';
-import { Link } from 'expo-router';
 import { LinearGradient } from 'expo-linear-gradient';
+import { useNavigation } from "@react-navigation/native";
+import Login from '../Screens/Login';
+import { createNativeStackNavigator } from '@react-navigation/native-stack';
+
+const Stack = createNativeStackNavigator();
+
 
 export default function LoginScreen() {
+  const navigation = useNavigation();
   return (
     <ImageBackground
-    //   source={{ uri: 'https://images.unsplash.com/photo-1533174072545-7a4b6ad7a6c3?q=80&w=2070&auto=format&fit=crop' }} 
+      source={{ uri: 'https://images.unsplash.com/photo-1533174072545-7a4b6ad7a6c3?q=80&w=2070&auto=format&fit=crop' }} 
       style={styles.container}
     >
       <LinearGradient
@@ -63,16 +69,17 @@ export default function LoginScreen() {
           </View>
 
           <View style={styles.footer}>
+          <TouchableOpacity onPress={() => navigation.navigate('Login' as never)}>
             <Text style={styles.footerText}>Already Signed up?</Text>
-            {/* <Link href="/login" style={styles.loginLink}>
-              <Text style={styles.loginText}>Log in</Text>
-            </Link> */}
-            <Text style={styles.termsText}>
-              By proceeding, you agree with Giglz's{' '}
-              <Text style={styles.linkText}>Terms of Service</Text> and{' '}
-              <Text style={styles.linkText}>Privacy Policy</Text>
-            </Text>
-          </View>
+          </TouchableOpacity>
+          
+      
+          <Text style={styles.termsText}>
+            By proceeding, you agree with Giglz's{' '}
+            <Text style={styles.linkText}>Terms of Service</Text> and{' '}
+            <Text style={styles.linkText}>Privacy Policy</Text>
+          </Text>
+        </View>
         </View>
       </LinearGradient>
     </ImageBackground>
@@ -226,4 +233,11 @@ const styles = StyleSheet.create({
     color: '#FFD700',
     textDecorationLine: 'underline',
   },
+  button: {
+    backgroundColor: "#f5d76e",
+    paddingVertical: 12,
+    paddingHorizontal: 25,
+    borderRadius: 25,
+  },
+  
 });
