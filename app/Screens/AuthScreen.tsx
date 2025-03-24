@@ -3,6 +3,8 @@ import { Music2 } from 'lucide-react-native';
 import { LinearGradient } from 'expo-linear-gradient';
 import { useNavigation } from "@react-navigation/native";
 import Login from '../Screens/Login';
+import MainMenu from '../Screens/MainMenu';
+
 import { createNativeStackNavigator } from '@react-navigation/native-stack';
 
 const Stack = createNativeStackNavigator();
@@ -32,13 +34,16 @@ export default function LoginScreen() {
           </Text>
 
           <View style={styles.buttonContainer}>
-            <Pressable style={styles.signUpButton}>
-              <Text style={styles.signUpText}>Sign up Free</Text>
-            </Pressable>
+            
+            <TouchableOpacity style={styles.signUpButton} onPress={() => navigation.navigate('SignUp' as never)}>
+              <Text style={styles.signUpText}>Login</Text>
+            </TouchableOpacity>
 
-            <Pressable style={styles.guestButton}>
-              <Text style={styles.guestText}>Continue as a Guest</Text>
-            </Pressable>
+
+            <TouchableOpacity style={styles.guestButton} onPress={() => navigation.navigate('MainMenu' as never)}>
+              <Text style={styles.guestText}>Continue as a guest</Text>
+            </TouchableOpacity>
+            
           </View>
 
           <View style={styles.divider}>
@@ -70,7 +75,7 @@ export default function LoginScreen() {
 
           <View style={styles.footer}>
           <TouchableOpacity onPress={() => navigation.navigate('Login' as never)}>
-            <Text style={styles.footerText}>Already Signed up?</Text>
+            <Text style={styles.footerText}>Login</Text>
           </TouchableOpacity>
           
       

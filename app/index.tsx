@@ -1,9 +1,10 @@
 import React from "react";
-import { NavigationContainer } from "@react-navigation/native";
 import { createNativeStackNavigator } from "@react-navigation/native-stack";
-import { SafeAreaProvider } from "react-native-safe-area-context";
 import AuthScreen from "./Screens/AuthScreen"; 
-import Login from "./Screens/Login";// 
+import Login from "./Screens/Login";
+import SignUp from "./Screens/SignUp";
+import MainMenu from './Screens/MainMenu';
+
 
 const Stack = createNativeStackNavigator();
 
@@ -17,6 +18,14 @@ export default function Index() {
           <Stack.Screen
             name="Login"
             component={Login}
+          />
+          <Stack.Screen
+            name="SignUp"
+            component={SignUp}
+          />
+          <Stack.Screen
+            name="MainMenu"
+            component={MainMenu}
           />
 
         </Stack.Navigator>
